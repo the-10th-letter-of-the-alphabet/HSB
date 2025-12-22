@@ -46,7 +46,7 @@ from collections import deque
 # ----------------------------
 running = False
 stop_event = threading.Event()
-CHAT_ENABLED = True  # Default to ON
+CHAT_ENABLED = False# Default to ON
 state_lock = threading.Lock()
 
 fish_caught = 0
@@ -1015,7 +1015,7 @@ with EventQueue() as event_queue:
                     threading.Thread(target=monitorEntity, daemon=True).start()
                     threading.Thread(target=orientation_check, daemon=True).start()
                     threading.Thread(target=telemetry, daemon=True).start()
-                    threading.Thread(target=random_movement, daemon=True).start()
+                    #threading.Thread(target=random_movement, daemon=True).start()
                     threading.Thread(target=health_monitor, daemon=True).start()
                     threading.Thread(target=player_watchdog, daemon=True).start()
                 else:
